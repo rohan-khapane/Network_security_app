@@ -212,24 +212,30 @@ def change_type(sub):
 
 
 def process_message_encrypt(message):
-    primefiller()
-    setkeys()
-    coded=encoder(message)
-    strmessage=' '.join(map(str,coded))
-    cipher_text=encrypt_morse(strmessage.upper())
+    try:
+        primefiller()
+        setkeys()
+        coded=encoder(message)
+        strmessage=' '.join(map(str,coded))
+        cipher_text=encrypt_morse(strmessage.upper())
 
-    return cipher_text
+        return cipher_text
+    except Exception as e:
+    error_message_encrypt="Error during encryption:"+ str(e)
+    return error_message_encrypt
+
 
 def process_message_decrypt(cipher_text):
-
-    result2=decrypt_morse(cipher_text)
-    listresult=list(result2.split(" "))
-    res1=all(isinstance(sub,type(listresult[0]))for sub in listresult[1:])
-    res2=change_type(listresult)
-
-    decoded_message=''.join(str(p) for p in decoder(res2))
-
-    return decoded_message
+    try:
+        result2=decrypt_morse(cipher_text)
+        listresult=list(result2.split(" "))
+        res1=all(isinstance(sub,type(listresult[0]))for sub in listresult[1:])
+        res2=change_type(listresult)
+        decoded_message=''.join(str(p) for p in decoder(res2))
+        return decoded_message
+    except Exception as e:
+    error_message_decrypt="Error during decryption:"+str(e)
+    return error_message_decrypt
 
 
 

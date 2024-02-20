@@ -110,6 +110,7 @@ public class decryptFragment extends Fragment {
         dn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String message=dn_ed_txt.getText().toString();
 
                 //Instance creation
