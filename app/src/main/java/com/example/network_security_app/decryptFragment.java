@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chaquo.python.PyException;
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
@@ -117,18 +118,20 @@ public class decryptFragment extends Fragment {
                 Python py=Python.getInstance();
                 //Objected created
                 PyObject pyobj = py.getModule("encryption");
-//                PyObject cipher=pyobj.callAttr("process_message_encrypt",message);
-//                String cipher_text =cipher.toString();
 
+                try {
 
-                PyObject decode=pyobj.callAttr("process_message_decrypt",message);
+                    PyObject decode = pyobj.callAttr("process_message_decrypt", message);
 
-                String decoded_message = decode.toString();
+                    String decoded_message = decode.toString();
 
-                dn_txt_view_cipher_output.setText(decoded_message);
-                dn_txt_view_cipher_output.setBackgroundColor(Color.WHITE);
+                    dn_txt_view_cipher_output.setText(decoded_message);
+                    dn_txt_view_cipher_output.setBackgroundColor(Color.WHITE);
 //                dn_txt_view_out2.setText(decoded_message);
 //                dn_txt_view_out2.setBackgroundColor(Color.WHITE);
+                }catch (PyException pyException){
+                    Toast.makeText(getActivity(), pyException.getMessage(), Toast.LENGTH_SHORT).show();
+                }
 
                 dn_img_copy.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -158,6 +161,7 @@ public class decryptFragment extends Fragment {
 
             }
         });
+
 
         return v;
 

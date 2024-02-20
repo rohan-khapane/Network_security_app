@@ -221,8 +221,8 @@ def process_message_encrypt(message):
 
         return cipher_text
     except Exception as e:
-    error_message_encrypt="Error during encryption:"+ str(e)
-    return error_message_encrypt
+        error_message_encrypt="Error during encryption:"+ str(e)
+        return error_message_encrypt
 
 
 def process_message_decrypt(cipher_text):
@@ -234,8 +234,8 @@ def process_message_decrypt(cipher_text):
         decoded_message=''.join(str(p) for p in decoder(res2))
         return decoded_message
     except Exception as e:
-    error_message_decrypt="Error during decryption:"+str(e)
-    return error_message_decrypt
+        error_message_decrypt="Error during decryption:"+str(e)
+        raise error_message_decrypt
 
 
 
