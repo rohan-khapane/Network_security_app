@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Network_security_app"
         tools:targetApi="34">
         <activity
+            android:name=".generatekey"
+            android:exported="false" />
+        <activity
             android:name=".flash_screen"
             android:exported="true">
             <intent-filter>
@@ -22,14 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"/>
     </application>
 
 </manifest>

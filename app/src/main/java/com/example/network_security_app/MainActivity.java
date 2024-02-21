@@ -1,10 +1,16 @@
 package com.example.network_security_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
+
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import android.os.Bundle;
@@ -32,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+
 //        textView=(TextView)findViewById(R.id.textview);
 
         if (! Python.isStarted()) {
@@ -54,5 +61,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        new MenuInflater(this).inflate(R.menu.opt_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+         int itemId=item.getItemId();
+         if(itemId==R.id.generate_key){
+             Intent intent=new Intent(MainActivity.this,generatekey.class);
+             startActivity(intent);
+         }
+        return super.onOptionsItemSelected(item);
     }
 }

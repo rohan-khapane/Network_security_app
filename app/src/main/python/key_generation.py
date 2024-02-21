@@ -46,7 +46,7 @@ def setkeys():
 
     prime1 = pickrandomprime() # First prime number
     prime2 = pickrandomprime() # Second prime number
-    print(prime1,prime2)
+    #print(prime1,prime2)
 
     n = prime1 * prime2
     fi = (prime1 - 1) * (prime2 - 1)
@@ -59,7 +59,7 @@ def setkeys():
 
     # d = (k*Φ(n) + 1) / e for some integer k
     public_key = e
-    print("public key",public_key)
+    #print("public key",public_key)
 
     d = 2
     while True:
@@ -68,8 +68,8 @@ def setkeys():
         d += 1
 
     private_key = d
-    print("private key",private_key)
-    print(n)
+    #print("private key",private_key)
+    #print(n)
 
-primefiller()
-setkeys()
+#primefiller()
+#setkeys()

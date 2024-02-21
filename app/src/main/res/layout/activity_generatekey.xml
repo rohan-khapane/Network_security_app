@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".generatekey"
+    android:background="@color/c5_sky_light"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardBackgroundColor="@color/c3_normal"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="50dp"
+            app:cardPreventCornerOverlap="true"
+            app:contentPadding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/public_key_txt_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="@string/public_key"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:gravity="right"
+                        android:src="@drawable/copy_image"
+                        android:hint="@String/copy"
+                        android:id="@+id/public_key_img_copy"
+
+                        >
+
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:gravity="right"
+                        android:src="@drawable/share_logo"
+                        android:hint="@String/copy"
+                        android:id="@+id/public_key_img_share"
+                        >
+
+                    </ImageView>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/public_key_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/private_key_txt_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="@string/private_key"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:gravity="right"
+                        android:src="@drawable/copy_image"
+                        android:hint="@String/copy"
+                        android:id="@+id/private_key_img_copy"
+
+                        >
+
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:gravity="right"
+                        android:src="@drawable/share_logo"
+                        android:hint="@String/copy"
+                        android:id="@+id/private_key_img_share"
+                        >
+
+                    </ImageView>
+
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/private_key_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="15dp"
+
+        >
+        <Button
+            android:id="@+id/key_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/generate_key"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:backgroundTint="@color/c2_medium"
+
+
+
+
+            />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
