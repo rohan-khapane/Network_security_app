@@ -78,6 +78,85 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/black"
                     />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:id="@+id/dn_txt_key_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:text="@string/enter_private_key_detail"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:id="@+id/dn_txt_view_d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+
+                            android:text="@string/ed_txt_dn_d"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            android:layout_weight="3"
+                            />
+                        <EditText
+                            android:id="@+id/dn_ed_txt_d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:hint="@string/ed_txt_dn_d"
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="@color/black"
+                            android:layout_weight="5"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:id="@+id/dn_txt_view_n"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center"
+
+                            android:text="@string/ed_txt_dn_n"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            android:layout_weight="3"
+                            />
+                        <EditText
+                            android:id="@+id/dn_ed_txt_n"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/white"
+                            android:hint="@string/ed_txt_dn_n"
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="@color/black"
+                            android:layout_weight="5"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

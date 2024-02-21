@@ -41,8 +41,8 @@ public class decryptFragment extends Fragment {
 
 
 
-    public TextView dn_txt_view_plain_text,dn_txt_view_cipher_text,dn_txt_view_cipher_output;
-    public EditText dn_ed_txt;
+    public TextView dn_txt_view_plain_text,dn_txt_view_cipher_text,dn_txt_view_cipher_output,dn_txt_key_details,dn_txt_view_d,dn_txt_view_n;
+    public EditText dn_ed_txt,dn_ed_txt_d,dn_ed_txt_n;
     public Button dn_btn;
     public ImageView dn_img_copy,dn_img_refresh,dn_img_share;
 
@@ -94,11 +94,17 @@ public class decryptFragment extends Fragment {
         dn_img_copy=v.findViewById(R.id.dn_img_copy);
         dn_img_refresh=v.findViewById(R.id.dn_img_refresh);
         dn_img_share=v.findViewById(R.id.dn_img_share);
+        dn_ed_txt_d=v.findViewById(R.id.dn_ed_txt_d);
+        dn_ed_txt_n=v.findViewById(R.id.dn_ed_txt_n);
+        dn_txt_view_n=v.findViewById(R.id.dn_txt_view_n);
+        dn_txt_view_d=v.findViewById(R.id.dn_txt_view_d);
 
         dn_img_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dn_txt_view_cipher_output.setText(null);
+                dn_ed_txt_d.setText(null);
+                dn_ed_txt_n.setText(null);
                 dn_txt_view_cipher_output.setBackgroundColor(getResources().getColor(R.color.c3_normal));
                 dn_ed_txt.setText(null);
             }
@@ -113,15 +119,20 @@ public class decryptFragment extends Fragment {
             public void onClick(View v) {
 
                 String message=dn_ed_txt.getText().toString();
+                String d_string=dn_ed_txt_d.getText().toString();
+                String n_string=dn_ed_txt_n.getText().toString();
+
+                int d=Integer.parseInt(d_string);
+                int n=Integer.parseInt(n_string);
 
                 //Instance creation
                 Python py=Python.getInstance();
                 //Objected created
-                PyObject pyobj = py.getModule("encryption");
+                PyObject pyobj = py.getModule("encrypt");
 
                 try {
 
-                    PyObject decode = pyobj.callAttr("process_message_decrypt", message);
+                    PyObject decode = pyobj.callAttr("process_message_decrypt", message,d,n);
 
                     String decoded_message = decode.toString();
 

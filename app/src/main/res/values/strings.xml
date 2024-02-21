@@ -21,4 +21,12 @@
     <string name="cipher_text">Cipher Text</string>
     <string name="plain_text">Plain Text</string>
 
+    <string name="ed_txt_en_e">Enter e </string>
+<!--    <stirng name="ed_txt_en_n">Enter n</stirng>-->
+    <string name="enter_public_keys_detail">Enter Public Key\'s Details</string>
+    <string name="ed_txt_en_n">Enter n</string>
+    <string name="txt_en_e">Enter e</string>
+    <string name="ed_txt_dn_d">Enter d</string>
+    <string name="ed_txt_dn_n">Enter n</string>
+    <string name="enter_private_key_detail">Enter Private Key\'s Details</string>
 </resources>

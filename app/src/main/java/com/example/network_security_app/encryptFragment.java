@@ -39,8 +39,8 @@ public class encryptFragment extends Fragment {
     private String mParam2;
 
 
-    public TextView en_txt_view_plain_text,en_txt_view_cipher_text,en_txt_view_cipher_output;
-    public EditText en_ed_txt;
+    public TextView en_txt_view_plain_text,en_txt_view_cipher_text,en_txt_view_cipher_output,en_txt_view_e,en_txt_view_n,en_txt_key_details;
+    public EditText en_ed_txt,en_ed_txt_e,en_ed_txt_n;
     public Button en_btn;
     public ImageView en_img_copy,en_img_refresh,en_img_share;
 
@@ -94,11 +94,17 @@ public class encryptFragment extends Fragment {
         en_img_copy=v.findViewById(R.id.en_img_copy);
         en_img_refresh=v.findViewById(R.id.en_img_refresh);
         en_img_share=v.findViewById(R.id.en_img_share);
+        en_txt_view_e=v.findViewById(R.id.en_txt_view_e);
+        en_txt_view_n=v.findViewById(R.id.en_txt_view_n);
+        en_ed_txt_e=v.findViewById(R.id.en_ed_txt_e);
+        en_ed_txt_n=v.findViewById(R.id.en_ed_txt_n);
 
         en_img_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 en_txt_view_cipher_output.setText(null);
+                en_ed_txt_e.setText(null);
+                en_ed_txt_n.setText(null);
                 en_txt_view_cipher_output.setBackgroundColor(getResources().getColor(R.color.c3_normal));
                 en_ed_txt.setText(null);
             }
@@ -108,12 +114,15 @@ public class encryptFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String message=en_ed_txt.getText().toString();
-
+                String e_string=en_ed_txt_e.getText().toString();
+                String n_string=en_ed_txt_n.getText().toString();
+                int e=Integer.parseInt(e_string);
+                int n=Integer.parseInt(n_string);
                 //Instance creation
                 Python py=Python.getInstance();
                 //Objected created
-                PyObject pyobj = py.getModule("encryption");
-                PyObject cipher=pyobj.callAttr("process_message_encrypt",message);
+                PyObject pyobj = py.getModule("encrypt");
+                PyObject cipher=pyobj.callAttr("process_message_encrypt",message,e,n);
                 String cipher_text =cipher.toString();
 
 
@@ -123,6 +132,7 @@ public class encryptFragment extends Fragment {
 
                 en_txt_view_cipher_output.setText(cipher_text);
                 en_txt_view_cipher_output.setBackgroundColor(Color.WHITE);
+
 //                dn_txt_view_out2.setText(decoded_message);
 //                dn_txt_view_out2.setBackgroundColor(Color.WHITE);
 
