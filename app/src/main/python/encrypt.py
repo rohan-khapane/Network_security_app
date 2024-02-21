@@ -151,10 +151,10 @@ def process_message_decrypt(cipher_text,private_key,n):
         return decoded_message
     except Exception as e:
         error_message_decrypt="Error during decryption:"+str(e)
-        return error_message_decrypt
+        raise error_message_decrypt
 
-m="hello @world! !!"
-r=process_message_encrypt(m,3,4399)
-print(r)
-d=process_message_decrypt(r,2843,4399)
-print(d)
+#m="hello @world! !!"
+#r=process_message_encrypt(m,3,4399)
+#print(r)
+#d=process_message_decrypt(r,2843,4399)
+#print(d)

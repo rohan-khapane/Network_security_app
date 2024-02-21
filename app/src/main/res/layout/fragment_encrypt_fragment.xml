@@ -208,6 +208,11 @@
 <!--                    android:text=""-->
 <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
 <!--                    android:textStyle="bold" />-->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                
                 <TextView
                     android:id="@+id/en_txt_view_cipher_output"
                     android:layout_width="match_parent"
@@ -216,6 +221,7 @@
                     android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />
+                </ScrollView>
 
 
 

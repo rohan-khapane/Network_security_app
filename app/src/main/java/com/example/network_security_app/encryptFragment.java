@@ -116,6 +116,13 @@ public class encryptFragment extends Fragment {
                 String message=en_ed_txt.getText().toString();
                 String e_string=en_ed_txt_e.getText().toString();
                 String n_string=en_ed_txt_n.getText().toString();
+                if (message.isEmpty() || e_string.isEmpty() || n_string.isEmpty()) {
+                    // Display an error message or take appropriate action
+                    Toast.makeText(getActivity(), "Please enter all values", Toast.LENGTH_SHORT).show();
+                    return; // Stop further execution
+                }
+
+                try {
                 int e=Integer.parseInt(e_string);
                 int n=Integer.parseInt(n_string);
                 //Instance creation
@@ -159,7 +166,10 @@ public class encryptFragment extends Fragment {
 
                     }
                 });
-
+                } catch (NumberFormatException e) {
+                    // Handle the case where e_string or n_string cannot be parsed as integers
+                    Toast.makeText(getActivity(), "Invalid value for e or n", Toast.LENGTH_SHORT).show();
+                }
 
 
             }

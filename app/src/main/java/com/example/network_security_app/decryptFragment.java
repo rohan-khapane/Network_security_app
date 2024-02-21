@@ -121,6 +121,12 @@ public class decryptFragment extends Fragment {
                 String message=dn_ed_txt.getText().toString();
                 String d_string=dn_ed_txt_d.getText().toString();
                 String n_string=dn_ed_txt_n.getText().toString();
+                if (message.isEmpty() || d_string.isEmpty() || n_string.isEmpty()) {
+                    // Display an error message or take appropriate action
+                    Toast.makeText(getActivity(), "Please enter all values", Toast.LENGTH_SHORT).show();
+                    return; // Stop further execution
+                }
+                try {
 
                 int d=Integer.parseInt(d_string);
                 int n=Integer.parseInt(n_string);
@@ -130,7 +136,7 @@ public class decryptFragment extends Fragment {
                 //Objected created
                 PyObject pyobj = py.getModule("encrypt");
 
-                try {
+
 
                     PyObject decode = pyobj.callAttr("process_message_decrypt", message,d,n);
 
@@ -140,9 +146,7 @@ public class decryptFragment extends Fragment {
                     dn_txt_view_cipher_output.setBackgroundColor(Color.WHITE);
 //                dn_txt_view_out2.setText(decoded_message);
 //                dn_txt_view_out2.setBackgroundColor(Color.WHITE);
-                }catch (PyException pyException){
-                    Toast.makeText(getActivity(), pyException.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+
 
                 dn_img_copy.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -168,7 +172,13 @@ public class decryptFragment extends Fragment {
                     }
                 });
 
-
+                }catch (PyException pyException){
+                    Toast.makeText(getActivity(), "Invalid Cipher Text", Toast.LENGTH_SHORT).show();
+                }
+                catch (NumberFormatException e) {
+                    // Handle the case where e_string or n_string cannot be parsed as integers
+                    Toast.makeText(getActivity(), "Invalid value for d or n", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
